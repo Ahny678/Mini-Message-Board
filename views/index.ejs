@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Messages</h1>
+    
+    <% messages.forEach(function(message) { %>
+      <div class="message">
+        <p><strong><%= message.user %></strong></p>
+        <p><em><%= message.date %></em></p>
+        <p><%= message.text %></p>
+      </div>
+    <% }); %>
+
+    <h2>Post new message</h2>
+   <a href="/new"> <button>POST</button></a>
+  </body>
+</html>
+
