@@ -4,12 +4,12 @@ var router = express.Router();
 const messages = [
   {
     text: "Hi there!",
-    user: "Amando",
+    title: "Greet",
     added: new Date()
   },
   {
     text: "Hello World!",
-    user: "Charles",
+    title: "Greet2",
     added: new Date()
   }
 ];
@@ -18,12 +18,12 @@ const messages = [
 router.get('/', function(req, res, next) {
   res.render("index", { title: "Mini Messageboard", messages: messages });
 });
-router.get('/new', function(req, res, next) {
-  res.render("form");
+router.get('/newMessage', function(req, res, next) {
+  res.render("messagesForm");
 });
-router.post('/new', function(req, res, next) {
-  const {name, message} = req.body;
-  messages.push({ text: message, user: name, added: new Date() });
+router.post('/newMessage', function(req, res, next) {
+  const {title, message} = req.body;
+  messages.push({ text: message, user: title, added: new Date() });
 
   res.redirect('/');
 });

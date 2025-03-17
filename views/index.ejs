@@ -9,14 +9,14 @@
     
     <% messages.forEach(function(message) { %>
       <div class="message">
-        <p><strong><%= message.user %></strong></p>
+        <p><strong><%= message.title %></strong></p>
         <p><em><%= message.date %></em></p>
         <p><%= message.text %></p>
       </div>
     <% }); %>
 
     <h2>Post new message</h2>
-   <a href="/new"> <button>POST</button></a>
+   <a href="/newMessage"> <button>POST</button></a>
   </body>
 </html>
 
