@@ -8,6 +8,7 @@ router.get('/newMessage', indexController.getMessageForm);
 router.post('/newMessage', indexController.postMessageForm);
 router.get('/:messageId/update', indexController.getUpdateMessageForm);
 router.post('/:messageId/update', indexController.updateMessageForm);
+router.post('/:messageId/delete', indexController.deleteMessage);
 
 
 module.exports = router;

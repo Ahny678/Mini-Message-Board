@@ -6,6 +6,7 @@ var userController = require('../controllers/userController')
 router.get('/', userController.getAllUsers);
 router.get('/createUser', userController.getUserCreatePage);
 router.post('/createUser', userController.postUserCreatePage);
+router.get('/searchUser', userController.searchUser);
  
 
 

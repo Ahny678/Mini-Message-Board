@@ -8,7 +8,11 @@ const users = [
         name: "derry!",
         email: "dm@email.com",
 
-    }
+    },
+    {
+      name: "mery!",
+      email: "m33@email.com",
+    },
   ];
 const alphaErr = "must only contain letters.";
 const lengthErr = "must be between 1 and 10 characters.";
@@ -43,4 +47,11 @@ const validateUser = [
     res.redirect("/users");
   }
   ]
+
+  exports.searchUser = (req, res)=>{
+    let name = req.query.name;
+    let matchedUsers = users.filter(obj => obj.name.toLowerCase().includes(name.toLowerCase()));
+    console.log(matchedUsers)
+    res.render('searchUser', {matchedUsers: matchedUsers})
+  }
   

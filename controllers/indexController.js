@@ -1,4 +1,4 @@
-const messages = [
+let messages = [
     {
       id: 1,
       text: "Hi there!",
@@ -43,10 +43,16 @@ const messages = [
     console.log(`Message with id ${id} not found`);
     // Handle the case where the message is not found
     }
+    res.redirect('/'); 
+  }
 
-
-    res.redirect('/');
+  exports.deleteMessage = (req, res)=>{
+    const IdToDelete = Number(req.params.messageId);
     
+    console.log(`Message with id ${IdToDelete}  found`);
+    let newMessageArr =  messages.filter(obj => obj.id === IdToDelete);
+    messages=newMessageArr;
+    res.redirect('/'); 
   }
 
  
