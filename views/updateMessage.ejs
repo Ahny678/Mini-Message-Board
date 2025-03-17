@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST"  action="/<%= messageId %>/update"> 
+    <label for="message">Enter new message</label>
+    <input type="hidden" name="id" value="<%= messageId %>">
+    <input type="text"  name="message">
+    <button type="submit">Update</button>
+    </form>
+</body>
+</html>

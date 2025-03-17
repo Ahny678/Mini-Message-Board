@@ -9,9 +9,11 @@
     
     <% messages.forEach(function(message) { %>
       <div class="message">
+        <!-- <p><strong><%= message.id %></strong></p> -->
         <p><strong><%= message.title %></strong></p>
         <p><em><%= message.date %></em></p>
         <p><%= message.text %></p>
+        <a href="/<%= message.id %>/update">Update message</a>
       </div>
     <% }); %>
 
