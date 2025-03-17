@@ -6,11 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-   
-    <form method="POST" action="/users/createUser">
-        <input type="text" name="name">
-        <input type="text" name="email">
-        <button type="submit">Post</button>
-    </form>
+    <h1>testing purpose</h1>
+<% users.forEach(function(user) { %>
+    <div class="user">
+      <p><strong><%= user.name %></strong></p>
+      <p><em><%= user.email %></em></p>
+    </div>
+  <% }); %>
 </body>
 </html>
