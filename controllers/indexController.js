@@ -1,3 +1,6 @@
+const { body, validationResult } = require("express-validator");
+const lengthErr = "must be between 18 and 120 characters.";
+const limitErr = "must be max of 7 characters.";
 let messages = [
     {
       id: 1,
@@ -14,18 +17,35 @@ let messages = [
   ];
   let count = 3;
 
+  const validateMessage = [
+    body("message").optional().trim()
+      .isLength({ min: 18, max: 120 }).withMessage(`Name ${lengthErr}`),
+      body("title").trim()
+      .isLength({ min: 0, max: 7 }).withMessage(`Name ${limitErr}`),
+      
+     
+  ];
+
   exports.getAllMessages = (req, res) =>{
     res.render("index", { title: "Mini Messageboard", messages: messages });
   }
   exports.getMessageForm = (req, res) =>{
     res.render("messagesForm");
   }
-  exports.postMessageForm = (req, res) =>{
+  exports.postMessageForm =[validateMessage, (req, res) =>{
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("messagesForm", {
+        errors: errors.array(),
+      });
+    }
+
     const {title, message} = req.body;
     messages.push({id:count, text: message, title: title, added: new Date() });
     count+=1;
     res.redirect('/');
   }
+]
   exports.getUpdateMessageForm = (req, res) =>{
     const messageId = req.params.messageId;
     res.render('updateMessage', {messageId: messageId} );
